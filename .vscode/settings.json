@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/timo/Developer/electronics/skeletons/arm-gnu-toolchain/.build",
+            "binaryPath": "/Users/timo/Developer/electronics/skeletons/arm-gnu-toolchain/.build/firmware.elf",
+            "binaryArgs": []
+        }
+    ],
+    "C_Cpp.default.browse.path": [
+        "CMSIS/Core/Include",
+        "cmsis-device-f4-master/Include"
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "OpenOCD STM32F401RE",
+            "cwd": "${workspaceFolder}",
+            "executable": "./.build/firmware.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "device": "stm32f401re",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg",
+            ],
+            "showDevDebugOutput": "none",
+            "armToolchainPath": "/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin",
+            "preLaunchCommands": [
+                "monitor program .build/firmware.elf verify reset"
+            ],
+            "svdFile": "./SVD/STM32F4_svd/STM32F4_svd_V2.0/STM32F401.svd",
+            // "svdFile": "./SVD/stm32f401.svd.patched",
+            "preLaunchTask": "Build",
+        },
+        {
+            "name": "OpenOCD STM32U083",
+            "cwd": "${workspaceFolder}",
+            "executable": "./.build/firmware.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "device": "stm32u083",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32u0???.cfg",
+            ],
+            "showDevDebugOutput": "none",
+            "armToolchainPath": "/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin",
+            "preLaunchCommands": [
+                "monitor program .build/firmware.elf verify reset"
+            ],
+            "svdFile": "./SVD/STM32U0_svd/STM32U0_svd_V1.0/STM32U083.svd",
+            "preLaunchTask": "Build"
+        }
+    ]
+}
