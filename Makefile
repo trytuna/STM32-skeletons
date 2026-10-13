@@ -4,7 +4,9 @@ OUTPUT_DIR := .build
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.c, $(OUTPUT_DIR)/%.o, $(SRC_FILES))
 
 MCUFLAGS := -mcpu=cortex-m4 -mthumb
+# MCUFLAGS := -mcpu=cortex-m0 -mthumb
 CFLAGS := -ffunction-sections -fdata-sections -g -O0 -ICMSIS/Core/Include -Icmsis-device-f4-master/Include
+# CFLAGS := -ffunction-sections -fdata-sections -g -O0 -ICMSIS/Core/Include -Icmsis-device-u0/Include
 LDFLAGS := -nostartfiles --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,-Map=$(OUTPUT_DIR)/firmware.map -Wl,--print-memory-usage
 # LDFLAGS += -Wl,--verbose
 
@@ -14,9 +16,9 @@ CC := $(TOOLCHAIN_BIN)/arm-none-eabi-gcc
 OBJCOPY := $(TOOLCHAIN_BIN)/arm-none-eabi-objcopy
 OPENOCD := openocd
 
-# STARTUP_FILE := startup_stm32u083.c
+# STARTUP_FILE := startup_stm32u073.c
 STARTUP_FILE := startup_stm32f401re.c
-# LINK_SCRIPT := stm32u083.ld
+# LINK_SCRIPT := stm32u073.ld
 LINK_SCRIPT := stm32f401re.ld
 
 
@@ -46,6 +48,7 @@ flash-stlink:
 
 flash:
 	$(OPENOCD) -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program $(OUTPUT_DIR)/firmware.elf verify reset exit"
+#	$(OPENOCD) -f interface/stlink.cfg -f target/stm32u5x.cfg -c "program $(OUTPUT_DIR)/firmware.elf verify reset exit"
 
 # https://www.gnu.org/software/make/manual/html_node/Echoing.html
 # https://www.gnu.org/software/make/manual/html_node/Errors.html

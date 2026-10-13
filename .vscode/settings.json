@@ -12,6 +12,8 @@
     ],
     "C_Cpp.default.browse.path": [
         "CMSIS/Core/Include",
-        "cmsis-device-f4-master/Include"
-    ]
+        "cmsis-device-f4-master/Include",
+        "cmsis-device-u0/Include"
+    ],
+    "cortex-debug.openocdPath.osx": "/opt/homebrew/bin/openocd-st",
 }
